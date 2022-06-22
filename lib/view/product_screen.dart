@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_sample/controller/product_controller.dart';
-import 'package:flutter_getx_sample/view/product_screen.dart';
 import 'package:get/get.dart';
 
-class MainScreen extends StatelessWidget {
-  MainScreen({Key? key}) : super(key: key);
+class ProductScreen extends StatelessWidget {
+  ProductScreen({Key? key}) : super(key: key);
 
   // var counter = 0.obs;
   // RxInt counter = 0.obs;
@@ -20,6 +19,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -45,17 +45,17 @@ class MainScreen extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   productController.productModel.update((val) {
-                    val!.name = "لواشک";
-                    val.price = "125000";
-                    val.off = "30%";
+                    val!.name = "خیار";
+                    val.price = "25000";
+                    val.off = "80%";
                   });
                 },
                 child: const Text("press")),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(ProductScreen());
+                  Get.back();
                 },
-                child: const Text("go"))
+                child: const Text("back"))
           ],
         ),
       ),
