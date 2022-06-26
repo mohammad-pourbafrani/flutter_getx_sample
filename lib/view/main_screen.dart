@@ -53,7 +53,7 @@ class MainScreen extends StatelessWidget {
                 child: const Text("press")),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(ProductScreen());
+                  Get.to(() => ProductScreen());
                 },
                 child: const Text("go"))
           ],

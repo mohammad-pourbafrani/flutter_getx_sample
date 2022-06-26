@@ -14,8 +14,6 @@ class ProductScreen extends StatelessWidget {
   //GetX
   //GetBuilder
 
-  ProductController productController = Get.put(ProductController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,27 +22,30 @@ class ProductScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx((() {
-              return Column(
-                children: [
-                  Text(
-                    "name : ${productController.productModel.value.name}",
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                  Text(
-                    "price : ${productController.productModel.value.price}",
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                  Text(
-                    "offer : ${productController.productModel.value.off}",
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ],
-              );
-            })),
+            GetX(
+                autoRemove: true,
+                init: ProductController(),
+                builder: (ProductController productController) {
+                  return Column(
+                    children: [
+                      Text(
+                        "name : ${productController.productModel.value.name}",
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        "price : ${productController.productModel.value.price}",
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        "offer : ${productController.productModel.value.off}",
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  );
+                }),
             ElevatedButton(
                 onPressed: () {
-                  productController.productModel.update((val) {
+                  Get.find<ProductController>().productModel.update((val) {
                     val!.name = "خیار";
                     val.price = "25000";
                     val.off = "80%";
