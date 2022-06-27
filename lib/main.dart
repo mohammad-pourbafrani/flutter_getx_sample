@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_sample/view/main_screen.dart';
+import 'package:flutter_getx_sample/view/product_getbuilder_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: ProductGetBuilderScreen(),
     );
   }
 }
